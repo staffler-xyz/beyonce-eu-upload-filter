@@ -1,13 +1,7 @@
-# Beyoncé Upload Filter
+# Beyoncé EU Upload Filter
 
-Remove unflattering photos of Beyoncé.
-
-## History
-
-1. In 2013 Beyoncé's publicist ask to remove unflattering images from an internet article. Unfortunately, once they are on the internet, they are on the internet.
-3. To get rid of the images, Beyoncé's publicist asked the EU if they could make a law to finally remove the unflattering images from the web. 
-4. In 2018 the EU approves the controversial EU copyright directive and the "upload filter" to fight against copyright violations, terrorism and bad photos of Beyoncé.
-5. After the final vote in 2019 every online portal has to implement a scanning system and connect to the official *Beyoncé Upload Filter*.
+2013: Beyoncé's publicist asked to remove unflattering images from an [internet article](https://www.buzzfeed.com/buzzfeedceleb/the-unflattering-photos-beyonces-publicist-doesnt-want-you-t). Unfortunately, once an image is on the internet, it is there forever!
+2018: The EU approves the controversial [EU copyright directive](http://www.europarl.europa.eu/news/en/press-room/20180906IPR12103/parliament-adopts-its-position-on-digital-copyright-rules) and the "upload filter" to fight against copyright violations, terrorism and ... unflattering  photos of Beyoncé.
 
 ## Setup
 
@@ -17,4 +11,18 @@ bundle install
 rails s
 ```
 
-Send a POST-multipart-request with an `image` parameter to the server for image validation. 
+## Testing
+
+Send a POST-multipart-request with an `image` parameter to the server for image validation:
+```
+curl -X POST \
+  http://localhost:3000 \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
+  -F 'image=@/path/to/file'
+```
+
+Or run the tests:
+```
+rails test
+```
